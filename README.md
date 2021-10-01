@@ -24,21 +24,82 @@ If you would like to contribute to this repository, feel free to create a Pull R
 
 ### [Identification and Verification of Simple Claims about Statistical Properties (Vlachos et al 2015)](https://www.aclweb.org/anthology/D15-1312/)
 
+In this study the aim is to verify statistical claims, such as "the population of France is 66 million". 
+
+The first task is to find textual patterns which contain the entities. In the example above that would be "the population of X is -", where "X" could be any country and "-" could be any number. 
+
+To collect data, they selected 16 properties from the Freebase knowledge base, each property containing around 150-175 values, most of which were countries. Then they combined the region with the property and made a Bing search query and took the top 50 results for each query. This would result in about 16*150*50 = 120,000 web pages extracted.
+
+To get the patterns they extracted the text of the named entity, which in this case were locations, and the number, for example population. 
+
+
 ### [Detecting Check-worthy Factual Claims in Presidential Debates (Hassan et al 2015)](https://www.researchgate.net/publication/301800740_Detecting_Check-worthy_Factual_Claims_in_Presidential_Debates)
 
 ### [The State of Automated Factchecking (Babakar et al 2016)](https://fullfact.org/blog/2016/aug/automated-factchecking/)
 
 ### [Toward Automated Fact-Checking: Detecting Check-worthy Factual Claims by ClaimBuster (Hassan et al 2017)](https://dl.acm.org/doi/10.1145/3097983.3098131)
 
+### [A simple but tough-to-beat baseline for the Fake News Challenge stance detection task (Riedel et al 2017)](https://arxiv.org/abs/1707.03264)
+
+This paper describes their submission to the 2017 Fake News Challenge. Their model is relatively simple and consists of an MLP with one hidden layer. As features they use the following: 
+- TF vector of the headline
+- TF vector of the body text
+- Cosine similarity between the L2-normalized TF-IDF vectors of the headline and body
+
+### [Fake News Detection using Stacked Ensemble of Classifiers (Thorne et al 2017)](https://aclanthology.org/W17-4214/)
+
 ### [FEVER: a large-scale dataset for Fact Extraction and VERification (Thorne et al 2018)](https://arxiv.org/abs/1803.05355)
+
+### [Combining Fact Extraction and Verification with Neural Semantic Matching Networks (Nie et al 2018)](https://arxiv.org/abs/1811.07039)
+
+They introduce a model that they are calling *Neural Semantic Matching Network (NSMN)*. This model contains 4 layers. The first layer is the *encoding layer* which consists of two BiLSTMs, one for each of the input sequences (e.g. claim and document). 
+
+The next layer is called the *alignment layer*. In this layer an alignment matrix is created, which is the matrix multiplication between the two input sequences. 
+
+For the word embeddings they use a combination of GloVe and ELMo because their combination gives a comprehensive and contextualized lexical representation of the inputs.
+
+### [UKP-Athene: Multi-Sentence Textual Entailment for Claim Verification (Hanselowski et al 2018)](https://arxiv.org/abs/1809.01479)
+
+For the document retrieval phase they extract entities from the claim and try to match these with document titles in Wikipedia. All the noun phrases are considered as entities in the claim. But this is not enough, since names of movies can consist of other phrases. To account for this they do a constituency parse of the claim, and take the tokens before the main verb as an entity. With these entities they search the MediaWiki API to find matching documents. The top match will be the documents with the largest overlap. 
+
+Their results for the document retrieval are 92.60 in accuracy for the top 3 docs. 
+
+For their sentence selection model they use what is called Enhanced Sequential Inference Model (ESIM). This model uses BiLSTMs to encode the claim and evidence sentences. For each claim they have the labelled evidence and they also sample sentences for negative evidence from the other sentences on the correct page. 
+
+Their result for sentence recall at top 3 sentences is 85.37.
+
+In the recognizing textual entailment phase they also use a variant of the ESIM model. As input to the model are concatenated word embeddings from GLoVe and FastText. Then each evidence sentence is combined with the claim before propagation through the model. 
+
 
 ### [Automated Fact Checking: Task formulations, methods and future directions (Thorne et al 2018)](https://www.aclweb.org/anthology/C18-1283/)
 
+### [UCL Machine Reading Group: Four Factor Framework For Fact Finding (HexaF) (Yoneda et al 2018)](https://aclanthology.org/W18-5515/)
+
 ### [Towards Debiasing Fact Verification Models (Schuster et al 2019)](https://arxiv.org/abs/1908.05267)
+
+### [Team DOMLIN: Exploiting Evidence Enhancement for the FEVER Shared Task (Stammbach et al 2019)](https://www.aclweb.org/anthology/D19-6616/)
+
+### [Buckle: evaluating fact checking algorithms built on knowledge bases (Huynh et al 2019)](https://dl.acm.org/doi/10.14778/3352063.3352069)
+
+### [MultiFC: A Real-World Multi-Domain Dataset for Evidence-Based Fact Checking of Claims (Augenstein et al 2019)](https://aclanthology.org/D19-1475/)
+
+### [TabFact: A Large-scale Dataset for Table-based Fact Verification (Chen et al 2020)](https://arxiv.org/abs/1909.02164)
+
+In this paper they develop a new dataset which focuses on fact verification, where the given facts are in a tabular format. The task is then to predict the truthfulness of a claim given a table. For this task they explain two different models, Latent Program Algorithm (LPA) and Table-BERT. 
+
 
 ### [Generating Fact Checking Explanations (Augenstein et al 2020)](https://arxiv.org/abs/2004.05773)
 
 ### [Fact or Fiction: Verifying Scientific Claims (Wadden et al 2020)](https://arxiv.org/abs/2004.14974)
+
+### [Factual Error Correction of Claims (Thorne et al 2020)](https://arxiv.org/abs/2012.15788)
+
+In this paper they are tackling the task of error correction of factual claims. Given a claim that is incorrect, the task is to retrieve evidence for or against this statement and then to reformulate the statement so that the claim is expressing the retrieved evidence.
+
+### [Factual Error Correction of Claims (Thorne et al 2020)](https://arxiv.org/abs/2012.15788)
+
+### [Language Models as Fact Checkers? (Lee et al 2020)](https://www.aclweb.org/anthology/2020.fever-1.5/)
+
 
 
 ## Datasets
