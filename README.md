@@ -104,8 +104,47 @@ In this paper they are tackling the task of error correction of factual claims. 
 
 ## Datasets
 
+### [LIAR Dataset](https://github.com/thiagorainmaker77/liar_dataset)
+
 ### [UKP Snopes Corpus (2019)](https://tudatalib.ulb.tu-darmstadt.de/handle/tudatalib/2081)
 This corpus contains data from the fact checking website Snopes. The corpus contains 6,422 validated claims, 16,507 evidence text snippets (annotated with sentence level evidence), and 14,296 documents with their sources (URLs).
 
-### [LIAR Dataset](https://github.com/thiagorainmaker77/liar_dataset)
+### [MultiFC (2019)](https://competitions.codalab.org/competitions/21163)
+A dataset with claims scraped from various fact-checking websites. 
+
+### [CLIMATE-FEVER (2020)](https://www.sustainablefinance.uzh.ch/en/research/climate-fever.html)
+A dataset with climate change related claims. The dataset contains the following for each claim:
+
+- claim_id: unique claim id
+- claim: claim text
+- claim_label: overall label assigned to claim (based on majority vote on evidences)
+- evidences: top five evidence sentences
+  - evidence_id: unique evidence id
+  - evidence_label: micro-verdict label
+  - article: title of source article (Wikipedia page)
+  - evidence: evidence sentence
+  - entropy: entropy reflecting uncertainty of votes
+  - votes: array containing individual votes
+
+### [SciFact (2020)](https://github.com/allenai/scifact)
+A dataset with scientific claims. 
+
+### [PolitiHop (2020)](https://github.com/copenlu/politihop)
+A dataset of political claims, which is targeting *multi-hop* claims e.g. claims that require reasoning over several pieces of evidence. The dataset is structured as follows:
+
+- article_id - article id corresponding to the id of the claim in the LIAR dataset
+- statement - the text of the claim
+- author - the author of the claim
+- ruling - a comma-separated list of the sentences in the Politifact ruling report (this excludes sentences from the summary in the end)
+- url_sentences - a comma-separated list of ids of the sentences with a corresponding source url(s)
+- relevant_text_url_sentences - a comma-separated list of ids of the sentences with a corresponding source url(s) that are actually relevant to the selected evidence sentences
+- politifact_label - label assigned to the claim by PolitiFact fact-checkiers
+- annotated_evidence - a json dict of the evidence chains (keys) and the sentences that belong to the chain (value, which is a list of sentence ids from the ruling)
+- annotated_label - label annotated by annotators of PolitiFact - True, False, Half-True
+- urls - a comma-separated list of source urls used in the corresponding PolitiFact article
+- annotated_urls - a json dict mapping sentence ids to the corresponding urls ids. One sentence can have multiple urls
+
+
+### [FaVIQ: FAct Verification from Information-seeking Questions (2021)](https://faviq.github.io/)
+
 
