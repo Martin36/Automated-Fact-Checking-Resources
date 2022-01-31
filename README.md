@@ -106,6 +106,8 @@ In this paper they are tackling the task of error correction of factual claims. 
 
 ### [LIAR Dataset](https://github.com/thiagorainmaker77/liar_dataset)
 
+### [Politifact Factcheck Data](https://www.kaggle.com/shivkumarganesh/politifact-factcheck-data)
+
 ### [UKP Snopes Corpus (2019)](https://tudatalib.ulb.tu-darmstadt.de/handle/tudatalib/2081)
 This corpus contains data from the fact checking website Snopes. The corpus contains 6,422 validated claims, 16,507 evidence text snippets (annotated with sentence level evidence), and 14,296 documents with their sources (URLs).
 
@@ -128,6 +130,9 @@ A dataset with climate change related claims. The dataset contains the following
 
 ### [SciFact (2020)](https://github.com/allenai/scifact)
 A dataset with scientific claims. 
+
+### [PUBHEALTH (2020)](https://github.com/neemakot/Health-Fact-Checking)
+A dataset with health related claims. 
 
 ### [PolitiHop (2020)](https://github.com/copenlu/politihop)
 A dataset of political claims, which is targeting *multi-hop* claims e.g. claims that require reasoning over several pieces of evidence. The dataset is structured as follows:
